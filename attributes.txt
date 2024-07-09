@@ -1,0 +1,128 @@
+Vue.js provides a variety of built-in attributes (often referred to as "directives") that are used to add reactive behavior to the DOM. Here’s a list of common Vue attributes and their functions:
+
+### Structural Directives
+
+1. **v-if**: Conditionally render elements based on the value of an expression.
+   ```html
+   <div v-if="show">Visible if show is true</div>
+   ```
+
+2. **v-else-if**: Provides a "else if" block for `v-if`.
+   ```html
+   <div v-if="show">Visible if show is true</div>
+   <div v-else-if="anotherCondition">Visible if anotherCondition is true</div>
+   ```
+
+3. **v-else**: Provides an "else" block for `v-if`.
+   ```html  
+   <div v-if="show">Visible if show is true</div>
+   <div v-else>Visible if show is false</div>
+   ```
+
+4. **v-show**: Toggle the visibility of an element by changing its CSS `display` property.
+   ```html
+   <div v-show="isVisible">Visible if isVisible is true</div>
+   ```
+
+5. **v-for**: Render a list of items by iterating over an array or object.
+   ```html
+   <div v-for="item in items" :key="item.id">{{ item.name }}</div>
+   ```
+
+### Attribute Bindings
+
+6. **v-bind**: Dynamically bind one or more attributes or a component prop to an expression.
+   ```html
+   <img v-bind:src="imageSrc" />
+   <!-- Shorthand: --> 
+   <img :src="imageSrc" />
+   ```
+
+### Event Handling
+
+7. **v-on**: Attach event listeners that invoke methods on Vue instances.
+   ```html
+   <button v-on:click="doSomething">Click me</button>
+   <!-- Shorthand: -->
+   <button @click="doSomething">Click me</button>
+   ```
+
+### Two-Way Binding
+
+8. **v-model**: Create a two-way binding on an `input`, `textarea`, `select`, or custom component.
+   ```html
+   <input v-model="message" />
+   ```
+
+### Conditional Class and Style Bindings
+
+9. **v-bind:class**: Bind one or more classes to an element.
+   ```html
+   <div v-bind:class="{ active: isActive }"></div>
+   <!-- Shorthand: -->
+   <div :class="{ active: isActive }"></div>
+   ```
+
+10. **v-bind:style**: Bind one or more styles to an element.
+    ```html
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+    <!-- Shorthand: -->
+    <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+    ```
+
+### Custom Directives
+
+11. **v-slot**: Define named slots in a component.
+    ```html
+    <template v-slot:header>
+      <h1>Here might be a page title</h1>
+    </template>
+    ```
+
+12. **v-pre**: Skip compilation for this element and all its children.
+    ```html
+    <div v-pre>{{ this will not be compiled }}</div>
+    ```
+
+13. **v-cloak**: Keep an element/cloak hidden until Vue's compilation process is complete.
+    ```html
+    <div v-cloak>{{ message }}</div>
+    ```
+
+14. **v-once**: Render the element and component once and skip updates.
+    ```html
+    <span v-once>This will never change: {{ message }}</span>
+    ```
+
+15. **v-html**: Update the element’s `innerHTML` directly.
+    ```html
+    <div v-html="rawHtml"></div>
+    ```
+
+### Custom Directives
+
+Vue also allows you to create custom directives to encapsulate reusable behaviors.
+
+```javascript
+app.directive('focus', {
+  mounted(el) {
+    el.focus();
+  }
+});
+```
+
+### Transition and Animation Directives
+
+16. **v-enter-from / v-leave-to**: Control the start and end state of entering/leaving elements.
+    ```html
+    <transition>
+      <div v-if="show" class="v-enter-from">Fade in</div>
+    </transition>
+    ```
+
+This list covers the core directives provided by Vue. Each directive has a specific purpose and enhances the way you can interact with the DOM and manage state and events in Vue applications.
+
+
+trim()
+splice()
+push()
